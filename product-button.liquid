@@ -1,0 +1,37 @@
+                      {% unless  customer and customer.tags contains "wholesale" %}
+
+                      <button type="submit" data-add-to-cart-text="{{ add_to_cart_text | escape }}" class="btn {% if enable_dynamic_checkout %}btn--secondary{% else %}btn--primary{% endif %} w-full" name="add"{% if product.available == false or section.settings.select_first_variant == false and product.variants.size > 1 %} disabled{% endif %}>
+                        {% if section.settings.select_first_variant == false and product.variants.size > 1 -%}
+                          {{ "products.variant.not_selected" | t }}
+                        {%- elsif product.available -%}
+                          {{- add_to_cart_text -}}
+                        {%- else -%}
+                          {{- 'products.product.sold_out' | t -}}
+                        {%- endif -%}
+                      </button>
+
+                      {% else %}
+
+                      {% if product.tags contains "Wholesale" or product.tags contains "wholesale" %}
+                      <button type="button"  data-discount-code="{{settings.disocunt_code}}" data-add-to-cart-text="{{ add_to_cart_text | escape }}" class="btn  btn-wholesale {% if enable_dynamic_checkout %}btn--secondary{% else %}btn--primary{% endif %} w-full" name="add"{% if product.available == false or section.settings.select_first_variant == false and product.variants.size > 1 %} disabled{% endif %}>
+                        {% if section.settings.select_first_variant == false and product.variants.size > 1 -%}
+                          {{ "products.variant.not_selected" | t }}
+                        {%- elsif product.available -%}
+                          {{- add_to_cart_text -}}
+                        {%- else -%}
+                          {{- 'products.product.sold_out' | t -}}
+                        {%- endif -%}
+                      </button>
+                      {% else %}
+                    <button type="submit" data-add-to-cart-text="{{ add_to_cart_text | escape }}" class="btn {% if enable_dynamic_checkout %}btn--secondary{% else %}btn--primary{% endif %} w-full" name="add"{% if product.available == false or section.settings.select_first_variant == false and product.variants.size > 1 %} disabled{% endif %}>
+                      {% if section.settings.select_first_variant == false and product.variants.size > 1 -%}
+                        {{ "products.variant.not_selected" | t }}
+                      {%- elsif product.available -%}
+                        {{- add_to_cart_text -}}
+                      {%- else -%}
+                        {{- 'products.product.sold_out' | t -}}
+                      {%- endif -%}
+                    </button>
+                      {% endif %}
+
+                    {% endunless %}
