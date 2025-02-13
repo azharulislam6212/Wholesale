@@ -1,0 +1,5 @@
+  {% if customer and customer.tags contains "wholesale" %}
+                  <li><a class="main-nav__item main-nav__item--primary" href="{{ settings.wholesale_page }}">{{ settings.wholesale_label }}</a></li>
+                {% else %}
+                  <li><a class="main-nav__item main-nav__item--primary" href="{{ settings.aplly_to_wholesale }}">{{ settings.applyto_wholesale_label }}</a></li>
+                {% endif %}
