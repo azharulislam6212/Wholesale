@@ -1,0 +1,58 @@
+  {
+    "name": "Wholesale",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Wholesale page"
+      },
+      {
+        "type": "range",
+        "id": "wholesale_discount",
+        "label": "Wholesale Discount",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "%",
+        "default": 30
+      },
+      {
+        "type": "inline_richtext",
+        "id": "disocunt_code",
+        "label": "Wholesale Discount",
+        "default": "WHOLESALE30"
+      },
+      {
+        "type": "text",
+        "id": "wholesale_label",
+        "label": "Wholesale label",
+        "default": "Wholesale Products"
+      },
+      {
+        "type": "url",
+        "id": "wholesale_page",
+        "label": "Wholesale page",
+        "default": "\/collections\/all"
+      },
+      {
+        "type": "header",
+        "content": "Apply to Wholesale page"
+      },
+      {
+        "type": "text",
+        "id": "applyto_wholesale_label",
+        "label": "Apply to Wholesale label",
+        "default": "Apply to Wholesale"
+      },
+      {
+        "type": "url",
+        "id": "aplly_to_wholesale",
+        "label": "Apply To Wholesale page"
+      },
+      {
+        "type": "text",
+        "id": "not_found",
+        "default": "Your are unble to buy a Wholesale Product",
+        "label": "Not Found message"
+      }
+    ]
+  },
