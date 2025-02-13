@@ -1,0 +1,49 @@
+
+
+//in header 
+
+ {% unless customer and customer.tags contains 'wholesale' %}
+      <script>
+        const discountCode = document.cookie.match(/discount_code=([^;]+)/)[1];
+
+        console.log("discountCode", discountCode);
+
+
+
+        
+        if (discountCode) {
+          fetch(`/discount/0`).catch((error) => {
+            console.error('Error applying discount:', error);
+          });
+        }
+
+
+      </script>
+
+      {% else %}
+
+      <script>
+
+        const discountCode = document.cookie.match(/discount_code=([^;]+)/)[1];
+
+              if (discountCode == 0) {
+              fetch('/cart/clear.js', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                }
+              })
+              .then(response => response.json())
+              .then(data => {
+                // console.log('Discount Removed:', data);
+              })
+              .catch(error => {
+                console.error('Error removing discount:', error);
+              });
+        
+            }
+
+
+      </script>
+        
+    {% endunless %}
